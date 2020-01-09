@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.github.ahmed7official.statelayoutsample">
 
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
