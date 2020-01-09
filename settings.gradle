@@ -1,0 +1,2 @@
+include ':app', ':statelayout'
+rootProject.name='State Layout Sample'
