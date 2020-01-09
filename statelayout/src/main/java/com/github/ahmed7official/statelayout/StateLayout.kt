@@ -2,12 +2,16 @@ package com.github.ahmed7official.statelayout
 
 import android.animation.LayoutTransition
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.google.android.material.button.MaterialButton
 
@@ -24,6 +28,20 @@ class StateLayout @JvmOverloads constructor(
         LayoutInflater.from(context).inflate(R.layout.layout_retry, null, false)
     }//lazy
 
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    override fun onSaveInstanceState(): Parcelable? {
+        return super.onSaveInstanceState()
+        //TODO:
+    }//onSaveInstanceState()
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        super.onRestoreInstanceState(state)
+        //TODO:
+    }//onRestoreInstanceState()
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -82,11 +100,51 @@ class StateLayout @JvmOverloads constructor(
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    fun stateRetry(retryMessage: String = "Something went wrong", listener: () -> Unit) {
+    fun stateRetry(
+        title: String = "Something went wrong",
+        titleTextColor: Int = android.R.color.white,
+        msg: String? = null,
+        msgTextColor: Int = R.color.textError,
+        icon: Int = R.drawable.ic_warning,
+        backgroundColor: Int = R.color.colorPrimaryDark,
+        listener: () -> Unit
+    ) {
         Log.i("zxc", "stateLoading()")
 
-        layoutRetry.findViewById<TextView>(R.id.tvRetryMessage).text = retryMessage
+        layoutRetry.findViewById<TextView>(R.id.tvTitle).apply {
+            text = title
+            setTextColor(ContextCompat.getColor(context, titleTextColor))
+        }
+
         layoutRetry.findViewById<MaterialButton>(R.id.btnRetry).setOnClickListener { listener() }
+        layoutRetry.findViewById<ImageView>(R.id.retryImageView).setImageResource(icon)
+        layoutRetry.findViewById<ConstraintLayout>(R.id.layoutRetry).setBackgroundColor(ContextCompat.getColor(context, backgroundColor))
+
+
+        // - - - - - - - - - - - - - -
+        // - - - - - - - - - - - - - -
+
+        val tvMessage = layoutRetry.findViewById<TextView>(R.id.tvMessage)
+
+        when(msg){
+
+            null -> {
+                tvMessage.visibility = View.GONE
+            }
+
+            else -> {
+                tvMessage.apply {
+                    visibility = View.VISIBLE
+                    text = msg
+                    setTextColor(ContextCompat.getColor(context, msgTextColor))
+                }//apply
+            }
+
+        }//when
+
+        // - - - - - - - - - - - - - -
+        // - - - - - - - - - - - - - -
+
 
         children.forEach {
             if (it == layoutRetry) {

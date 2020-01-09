@@ -1,5 +1,6 @@
 package com.github.ahmed7official.statelayoutsample
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -49,7 +50,10 @@ class MainActivity : AppCompatActivity() {
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     private fun showErrorWithRetry(){
-        stateLayout.stateRetry{
+        stateLayout.stateRetry(
+            msg = "In order to continue kindly check your internet connection and try again after that."
+        ){
+
             Toast.makeText(this, "Retry", Toast.LENGTH_SHORT).show()
         }
     }//showErrorWithRetry()

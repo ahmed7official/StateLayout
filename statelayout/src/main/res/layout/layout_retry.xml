@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRetry"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     android:background="@color/colorPrimaryDark"
     android:clickable="true"
     android:focusable="true">
@@ -17,6 +19,7 @@
 
 
         <ImageView
+            android:id="@+id/retryImageView"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:contentDescription="@string/icon"
@@ -24,23 +27,33 @@
 
 
         <TextView
-            android:id="@+id/tvRetryMessage"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:layout_marginBottom="24sp"
             android:text="@string/something_went_wrong"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
 
 
+        <TextView
+            android:layout_marginTop="8dp"
+            android:id="@+id/tvMessage"
+            tools:text="In order to continue Kindly check your internet connection and try again after that."
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F44336"/>
+
+
         <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="24dp"
             app:strokeWidth="1dp"
             app:strokeColor="@android:color/white"
             android:id="@+id/btnRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@android:color/transparent"
             android:text="@string/retry"
             app:cornerRadius="20dp"
             android:textColor="@android:color/white"
