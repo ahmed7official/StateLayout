@@ -6,13 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/layoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <Button
+            android:id="@+id/btnContent"
+            android:text="content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/btnLoading"
+            android:text="loading"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/btnError"
+            android:text="error"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+
+        <Button
+            android:id="@+id/btnErrorWithRetry"
+            android:text="Error with retry"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+
+
+    </LinearLayout>
+
+
+
+    <com.github.ahmed7official.statelayout.StateLayout
+        android:id="@+id/stateLayout"
+        app:layout_constraintTop_toBottomOf="@id/layoutButtons"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ScrollView
+            android:background="#3F51B5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:padding="8dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:text="@string/lorem"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.github.ahmed7official.statelayout.StateLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
