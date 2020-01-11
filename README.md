@@ -1,7 +1,7 @@
 StateLayout
 ===========
 
-StateLayout is a Layout enable yout navigate between layout states easily just by a line of code.
+StateLayout is a Layout enable you change and navigate between layout states easily just by a line of code.
 
 
 
