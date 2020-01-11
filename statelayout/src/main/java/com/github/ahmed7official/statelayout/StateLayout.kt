@@ -21,11 +21,15 @@ class StateLayout @JvmOverloads constructor(
 
 
     private val layoutLoading by lazy {
-        LayoutInflater.from(context).inflate(R.layout.layout_loading, null, false)
+        LayoutInflater.from(context).inflate(R.layout.layout_loading, this, false)
     }//lazy
 
     private val layoutRetry by lazy {
-        LayoutInflater.from(context).inflate(R.layout.layout_retry, null, false)
+        LayoutInflater.from(context).inflate(R.layout.layout_retry, this, false)
+    }//lazy
+
+    private val layoutError by lazy {
+        LayoutInflater.from(context).inflate(R.layout.layout_error, this, false)
     }//lazy
 
 
@@ -54,6 +58,9 @@ class StateLayout @JvmOverloads constructor(
         //
         layoutRetry.visibility = View.GONE
         addView(layoutRetry)
+        //
+        layoutError.visibility = View.GONE
+        addView(layoutError)
 
 
 
@@ -159,6 +166,40 @@ class StateLayout @JvmOverloads constructor(
             }//if
         }//forEach
 
-    }//showContent()
+    }//stateRetry()
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    fun stateError(
+        title: String = "Something went wrong",
+        titleTextColor: Int = android.R.color.white,
+        icon: Int = R.drawable.ic_warning,
+        backgroundColor: Int = R.color.colorPrimaryDark
+    ) {
+
+        layoutError.findViewById<TextView>(R.id.tvTitle).apply {
+            text = title
+            setTextColor(ContextCompat.getColor(context, titleTextColor))
+        }
+
+        layoutError.findViewById<ImageView>(R.id.errorImageView).setImageResource(icon)
+        layoutError.findViewById<ConstraintLayout>(R.id.layoutError).setBackgroundColor(ContextCompat.getColor(context, backgroundColor))
+
+
+
+        children.forEach {
+            if (it == layoutError) {
+                it.visibility = View.VISIBLE
+                return@forEach
+            }//if
+        }//forEach
+
+        children.forEach {
+            if (it != layoutError) {
+                it.visibility = View.GONE
+            }//if
+        }//forEach
+
+    }//stateError()
 
 }//StateLayout

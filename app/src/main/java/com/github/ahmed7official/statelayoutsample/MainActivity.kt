@@ -44,7 +44,10 @@ class MainActivity : AppCompatActivity() {
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     private fun showError(){
-
+        stateLayout.stateError(
+            title = "Internal Server Error",
+            icon = R.drawable.ic_error
+        )
     }//showError()
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
