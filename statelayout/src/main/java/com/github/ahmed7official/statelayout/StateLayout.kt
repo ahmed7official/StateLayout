@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -90,20 +91,19 @@ class StateLayout @JvmOverloads constructor(
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    fun stateLoading(loadingMessage: String = "Loading, please wait") {
+    fun stateLoading(
+        loadingMessage: String = "Loading, please wait",
+        backgroundColor: Int = R.color.colorPrimaryDark
+    ) {
         Log.i("zxc", "stateLoading()")
 
         layoutLoading.findViewById<TextView>(R.id.tvLoading).text = loadingMessage
+        layoutLoading.findViewById<LinearLayout>(R.id.layoutLoading).setBackgroundColor(ContextCompat.getColor(context, backgroundColor))
 
-        children.forEach {
-            if (it == layoutLoading) {
-                it.visibility = View.VISIBLE
-            } else {
-                it.visibility = View.GONE
-            }
-        }//forEach
 
-    }//showContent()
+        setState(layoutLoading)
+
+    }//stateLoading()
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -153,18 +153,7 @@ class StateLayout @JvmOverloads constructor(
         // - - - - - - - - - - - - - -
 
 
-        children.forEach {
-            if (it == layoutRetry) {
-                it.visibility = View.VISIBLE
-                return@forEach
-            }//if
-        }//forEach
-
-        children.forEach {
-            if (it != layoutRetry) {
-                it.visibility = View.GONE
-            }//if
-        }//forEach
+       setState(layoutRetry)
 
     }//stateRetry()
 
@@ -187,19 +176,28 @@ class StateLayout @JvmOverloads constructor(
 
 
 
+        setState(layoutError)
+
+    }//stateError()
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    private fun setState(state: View){
+
         children.forEach {
-            if (it == layoutError) {
+            if (it == state) {
                 it.visibility = View.VISIBLE
                 return@forEach
             }//if
         }//forEach
 
         children.forEach {
-            if (it != layoutError) {
+            if (it != state) {
                 it.visibility = View.GONE
             }//if
         }//forEach
 
-    }//stateError()
+    }//setState()
+
 
 }//StateLayout
