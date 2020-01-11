@@ -38,5 +38,6 @@ Praesent faucibus ac mi nec tincidunt. Vivamus pulvinar mattis dui. Curabitur eu
     <string name="something_went_wrong">Something went wrong</string>
     <string name="icon">icon</string>
     <string name="retry">retry</string>
+    <string name="loading">loading</string>
 
 </resources>

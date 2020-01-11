@@ -2,15 +2,14 @@ package com.github.ahmed7official.statelayout
 
 import android.animation.LayoutTransition
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
@@ -33,22 +32,6 @@ class StateLayout @JvmOverloads constructor(
         LayoutInflater.from(context).inflate(R.layout.layout_error, this, false)
     }//lazy
 
-
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    override fun onSaveInstanceState(): Parcelable? {
-        return super.onSaveInstanceState()
-        //TODO:
-    }//onSaveInstanceState()
-
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    override fun onRestoreInstanceState(state: Parcelable?) {
-        super.onRestoreInstanceState(state)
-        //TODO:
-    }//onRestoreInstanceState()
-
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -92,12 +75,18 @@ class StateLayout @JvmOverloads constructor(
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     fun stateLoading(
-        loadingMessage: String = "Loading, please wait",
-        backgroundColor: Int = R.color.colorPrimaryDark
+        message: String = "Loading, please wait",
+        messageColor: Int = android.R.color.darker_gray,
+        backgroundColor: Int = android.R.color.white
     ) {
-        Log.i("zxc", "stateLoading()")
 
-        layoutLoading.findViewById<TextView>(R.id.tvLoading).text = loadingMessage
+        layoutLoading.findViewById<TextView>(R.id.tvLoading).apply {
+            text = message
+            setTextColor(ContextCompat.getColor(context, messageColor))
+        }
+
+        layoutLoading.findViewById<ProgressBar>(R.id.progressBar).progressBackgroundTintList = ColorStateList.valueOf(Color.GRAY)
+
         layoutLoading.findViewById<LinearLayout>(R.id.layoutLoading).setBackgroundColor(ContextCompat.getColor(context, backgroundColor))
 
 

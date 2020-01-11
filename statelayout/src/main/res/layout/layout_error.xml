@@ -5,10 +5,10 @@
     android:id="@+id/layoutError"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
     android:background="@color/colorPrimaryDark"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:padding="24dp">
 
 
     <LinearLayout
@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            tools:text="Internal Server Error"
             android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:text="Internal Server Error" />
 
 
     </LinearLayout>
