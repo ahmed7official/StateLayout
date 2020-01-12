@@ -42,6 +42,8 @@ Available States
 
 State Loading
 -------
+    stateLayout.stateLoading()
+or
 
     stateLayout.stateLoading(
             message = "String",
@@ -51,6 +53,9 @@ State Loading
 
 State Error
 -----
+
+    stateLayout.stateError()
+or
 
     stateLayout.stateError(
             title = "Internal Server Error",
@@ -62,6 +67,8 @@ State Error
 
 State Error With Retry Button
 -----------------------
+    stateLayout.stateRetry(){}
+or
 
     stateLayout.stateRetry(
             title = "",
