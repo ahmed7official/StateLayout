@@ -4,9 +4,7 @@ StateLayout
 StateLayout is a Layout enable you to change and navigate between customizable layout states easily just by a line of code.
 
 
-
-[![img1][1]][1]
-[![img2][2]][2]
+ <img src="https://raw.githubusercontent.com/ahmed7official/StateLayout/master/ezgif-5-108efa390e7e.gif" alt="alt text" width="270" >
 
 
 
@@ -113,10 +111,4 @@ you can easily change and customize default style for any state screen by overri
     <color name="retryButtonTextColor">#FFFFFF</color>
 
 
-
-
-
-
-  [1]: https://i.stack.imgur.com/0wmTe.jpg
-  [2]: https://i.stack.imgur.com/ZkWC6.jpg
-  [3]: https://i.stack.imgur.com/EXfWb.jpg
+ 
