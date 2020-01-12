@@ -1,7 +1,7 @@
 StateLayout
 ===========
 
-StateLayout is a Layout enable you change and navigate between layout states easily just by a line of code.
+StateLayout is a Layout enable you to change and navigate between customizable layout states easily just by a line of code.
 
 
 
@@ -10,7 +10,7 @@ StateLayout is a Layout enable you change and navigate between layout states eas
 
 
 
-implementation
+build.gradle
 
 
     implementation 'com.github.ahmed7official:StateLayout:0.0.3'
