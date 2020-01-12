@@ -145,7 +145,7 @@ class StateLayout @JvmOverloads constructor(
     fun stateError(
         title: String = context.getString(R.string.error_title),
         titleTextColor: Int = R.color.errorTitleColor,
-        icon: Int = R.drawable.ic_warning,
+        icon: Int = R.drawable.ic_error,
         backgroundColor: Int = R.color.errorBackgroundColor
     ) {
 
