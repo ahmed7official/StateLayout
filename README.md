@@ -11,7 +11,7 @@ StateLayout is a Layout enable you to change and navigate between customizable l
 build.gradle
 
 
-    implementation 'com.github.ahmed7official:StateLayout:0.0.3'
+    implementation 'com.github.ahmed7official:StateLayout:0.1.0'
 
 
 Usage
