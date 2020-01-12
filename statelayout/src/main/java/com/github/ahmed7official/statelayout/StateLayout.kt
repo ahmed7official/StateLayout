@@ -2,9 +2,6 @@ package com.github.ahmed7official.statelayout
 
 import android.animation.LayoutTransition
 import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +10,6 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
-import com.google.android.material.button.MaterialButton
 
 class StateLayout @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -75,17 +71,15 @@ class StateLayout @JvmOverloads constructor(
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     fun stateLoading(
-        message: String = "Loading, please wait",
-        messageColor: Int = android.R.color.darker_gray,
-        backgroundColor: Int = android.R.color.white
+        message: String = context.getString(R.string.loading_message),
+        messageColor: Int = R.color.loadingMessageColor,
+        backgroundColor: Int = R.color.loadingBackgroundColor
     ) {
 
         layoutLoading.findViewById<TextView>(R.id.tvLoading).apply {
             text = message
             setTextColor(ContextCompat.getColor(context, messageColor))
         }
-
-        layoutLoading.findViewById<ProgressBar>(R.id.progressBar).progressBackgroundTintList = ColorStateList.valueOf(Color.GRAY)
 
         layoutLoading.findViewById<LinearLayout>(R.id.layoutLoading).setBackgroundColor(ContextCompat.getColor(context, backgroundColor))
 
@@ -97,12 +91,12 @@ class StateLayout @JvmOverloads constructor(
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     fun stateRetry(
-        title: String = "Something went wrong",
-        titleTextColor: Int = android.R.color.white,
-        msg: String? = null,
-        msgTextColor: Int = R.color.textError,
+        title: String = context.getString(R.string.retry_title),
+        titleTextColor: Int = R.color.retryTitleColor,
+        message: String? = null,
+        messageTextColor: Int = R.color.retryMessageColor,
         icon: Int = R.drawable.ic_warning,
-        backgroundColor: Int = R.color.colorPrimaryDark,
+        backgroundColor: Int = R.color.retryBackgroundColor,
         listener: () -> Unit
     ) {
         Log.i("zxc", "stateLoading()")
@@ -112,7 +106,7 @@ class StateLayout @JvmOverloads constructor(
             setTextColor(ContextCompat.getColor(context, titleTextColor))
         }
 
-        layoutRetry.findViewById<MaterialButton>(R.id.btnRetry).setOnClickListener { listener() }
+        layoutRetry.findViewById<TextView>(R.id.btnRetry).setOnClickListener { listener() }
         layoutRetry.findViewById<ImageView>(R.id.retryImageView).setImageResource(icon)
         layoutRetry.findViewById<ConstraintLayout>(R.id.layoutRetry).setBackgroundColor(ContextCompat.getColor(context, backgroundColor))
 
@@ -122,7 +116,7 @@ class StateLayout @JvmOverloads constructor(
 
         val tvMessage = layoutRetry.findViewById<TextView>(R.id.tvMessage)
 
-        when(msg){
+        when(message){
 
             null -> {
                 tvMessage.visibility = View.GONE
@@ -131,8 +125,8 @@ class StateLayout @JvmOverloads constructor(
             else -> {
                 tvMessage.apply {
                     visibility = View.VISIBLE
-                    text = msg
-                    setTextColor(ContextCompat.getColor(context, msgTextColor))
+                    text = message
+                    setTextColor(ContextCompat.getColor(context, messageTextColor))
                 }//apply
             }
 
@@ -149,10 +143,10 @@ class StateLayout @JvmOverloads constructor(
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     fun stateError(
-        title: String = "Something went wrong",
-        titleTextColor: Int = android.R.color.white,
+        title: String = context.getString(R.string.error_title),
+        titleTextColor: Int = R.color.errorTitleColor,
         icon: Int = R.drawable.ic_warning,
-        backgroundColor: Int = R.color.colorPrimaryDark
+        backgroundColor: Int = R.color.errorBackgroundColor
     ) {
 
         layoutError.findViewById<TextView>(R.id.tvTitle).apply {

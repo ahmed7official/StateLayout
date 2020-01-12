@@ -1,17 +1,15 @@
 package com.github.ahmed7official.statelayoutsample
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import com.github.ahmed7official.statelayout.StateLayout
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
 
 
@@ -32,32 +30,30 @@ class MainActivity : AppCompatActivity() {
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     private fun showContent(){
+        //DONE
         stateLayout.showContent()
     }//showContent()
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     private fun showLoading(){
+        //DONE
         stateLayout.stateLoading()
     }//showLoading()
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     private fun showError(){
-        stateLayout.stateError(
-            title = "Internal Server Error",
-            icon = R.drawable.ic_error
-        )
+        //DONE
+        stateLayout.stateError()
     }//showError()
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     private fun showErrorWithRetry(){
-        stateLayout.stateRetry(
-            msg = "In order to continue kindly check your internet connection and try again after that."
+        stateLayout.stateRetry(message = "In order to continue kindly check your internet connection and press retry"
         ){
-
-            Toast.makeText(this, "Retry", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "on retry button click", Toast.LENGTH_SHORT).show()
         }
     }//showErrorWithRetry()
 

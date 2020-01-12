@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.ahmed7official.statelayout.StateLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--StateLayout should have only one child-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Your Content-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.github.ahmed7official.statelayout.StateLayout>
