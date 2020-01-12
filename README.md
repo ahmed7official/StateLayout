@@ -85,6 +85,38 @@ show content
 to show your layout content call `stateLayout.showContent()`
 
 
+customization
+=============
+
+you can easily change and customize default style for any state screen by overriding style attributes
+
+    <string name="loading_message">loading</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="retry_title">Something went wrong</string>
+
+
+
+    <color name="loadingMessageColor">#7C7C7C</color>
+    <color name="loadingBackgroundColor">#FFFFFF</color>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <color name="errorTitleColor">#616161</color>
+    <color name="errorBackgroundColor">#FFFFFF</color>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <color name="retryTitleColor">#616161</color>
+    <color name="retryMessageColor">#7C7C7C</color>
+    <color name="retryBackgroundColor">#FFFFFF</color>
+    <color name="retryButtonBackgroundColor">#979797</color>
+    <color name="retryButtonTextColor">#FFFFFF</color>
+
+
+
+
+
+
   [1]: https://i.stack.imgur.com/0wmTe.jpg
   [2]: https://i.stack.imgur.com/ZkWC6.jpg
   [3]: https://i.stack.imgur.com/EXfWb.jpg
