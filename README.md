@@ -1,5 +1,7 @@
 StateLayout
 ===========
+[![](https://jitpack.io/v/ahmed7official/StateLayout.svg)](https://jitpack.io/#ahmed7official/StateLayout) [![HitCount](http://hits.dwyl.io/ahmed7official/StateLayout.svg)](http://hits.dwyl.io/ahmed7official/StateLayout)
+
 
 StateLayout is a Layout enable you to change and navigate between customizable layout states easily just by a line of code.
 
@@ -7,11 +9,23 @@ StateLayout is a Layout enable you to change and navigate between customizable l
  <img src="https://raw.githubusercontent.com/ahmed7official/StateLayout/master/ezgif-5-108efa390e7e.gif" alt="alt text" width="270" >
 
 
+# Installation
+- Add it in your root build.gradle at the end of repositories:
+   ```
+   allprojects {
+     repositories {
+      ...
+      maven { url 'https://jitpack.io' }
+     }
+    }
+   ```
+- Add the dependency 
+   ```
+   dependencies {
+            implementation 'com.github.ahmed7official:StateLayout:0.1.0'
+    }
+   ```
 
-build.gradle
-
-
-    implementation 'com.github.ahmed7official:StateLayout:0.1.0'
 
 
 Usage
